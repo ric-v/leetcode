@@ -29,9 +29,9 @@ func findMiddleIndex(num []int) int {
 
 func main() {
 
-	fmt.Println(findMiddleIndex([]int{1, 7, 3, 6, 5, 6}), "\n")
+	fmt.Println(findMiddleIndex([]int{1, 7, 3, 6, 5, 6}))
 
-	fmt.Println(findMiddleIndex([]int{1, 2, 3}), "\n")
+	fmt.Println(findMiddleIndex([]int{1, 2, 3}))
 
-	fmt.Println(findMiddleIndex([]int{2, 1, -1}), "\n")
+	fmt.Println(findMiddleIndex([]int{2, 1, -1}))
 }
