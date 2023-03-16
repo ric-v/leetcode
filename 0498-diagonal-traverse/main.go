@@ -2,57 +2,43 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
-/*
-_____________
-| 1 | 2 | 3 |
--------------
-| 4 | 5 | 6 |
--------------
-| 7 | 8 | 9 |
--------------
-[ 1     2     4     7     5     3      6     8     9]
-
-	00    01    10    20    11    02     12    21    22
-*/
 func findDiagonalOrder(mat [][]int) (result []int) {
 
-	if len(mat) == 0 || len(mat[0]) == 0 {
-		return
-	}
+	isWalkUp := true
+	height, width := len(mat), len(mat[0])
+	result = make([]int, 0, width*height)
+	i, j := 0, 0
 
-	var N, M = len(mat), len(mat[0])
-	var intermediate []int
+	for len(result) < height*width {
+		result = append(result, mat[i][j])
 
-	for i := 0; i < N+M-1; i++ {
+		switch {
+		case isWalkUp:
+			if i == 0 && j != width-1 {
+				isWalkUp = !isWalkUp
+				j++
+			} else if j == width-1 {
+				isWalkUp = !isWalkUp
+				i++
+			} else {
+				i--
+				j++
+			}
 
-		intermediate = []int{}
-
-		var r, c int
-
-		if i < M {
-			r = 0
-			c = i
-		} else {
-			r = i - M + 1
-			c = M - 1
+		case !isWalkUp:
+			if j == 0 && i != height-1 {
+				isWalkUp = !isWalkUp
+				i++
+			} else if i == height-1 {
+				isWalkUp = !isWalkUp
+				j++
+			} else {
+				i++
+				j--
+			}
 		}
-
-		for r < N && c > -1 {
-			fmt.Println(i, r, c)
-			intermediate = append(intermediate, mat[r][c])
-			r++
-			c--
-		}
-		fmt.Println(intermediate)
-
-		if i%2 == 0 {
-			sort.Sort(sort.Reverse(sort.IntSlice(intermediate)))
-		}
-
-		result = append(result, intermediate...)
 	}
 	return
 }
