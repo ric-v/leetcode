@@ -1,0 +1,12 @@
+go 1.20
+
+use (
+	./0001-two-sums
+	./0002-add-two-nums
+	./0009-palindrome-number
+	./0013-roman-to-integer
+	./0014-longest-common-prefix
+	./0020-valid-paranthesis
+	./0066-plus-one
+	./0412-fizz-buzz
+)

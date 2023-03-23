@@ -1,14 +1,15 @@
-package main
+package romantointeger
 
-import (
-	"fmt"
-)
-
-func romanToInt(s string) (n int) {
+// RomanToInt converts a roman numeral to an integer
+// eg: s = MCMXCIV	expected = 1994
+//
+// Time complexity: O(n)
+// Space complexity: O(1)
+func RomanToInt(s string) (n int) {
 
 	var prev int
 	for i := len(s) - 1; i >= 0; i-- {
-		curr := value(s[i])
+		curr := romanNumMap(s[i])
 
 		// if previous value is less than current
 		// add to result as the number is not part of
@@ -29,13 +30,13 @@ func romanToInt(s string) (n int) {
 		} else {
 			n -= curr
 		}
-		fmt.Println(prev, curr, n)
 		prev = curr
 	}
 	return
 }
 
-func value(c byte) int {
+// romanNumMap returns the integer value of a roman numeral
+func romanNumMap(c byte) int {
 	switch c {
 	case 'M':
 		return 1000
@@ -53,11 +54,4 @@ func value(c byte) int {
 		return 1
 	}
 	return 0
-}
-
-func main() {
-
-	fmt.Println(romanToInt("III"))
-	fmt.Println(romanToInt("LVIII"))
-	fmt.Println(romanToInt("MCMXCIV"))
 }
