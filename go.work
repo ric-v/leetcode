@@ -8,5 +8,6 @@ use (
 	./0014-longest-common-prefix
 	./0020-valid-paranthesis
 	./0066-plus-one
+	./0303-range-sum-query-immutable
 	./0412-fizz-buzz
 )
