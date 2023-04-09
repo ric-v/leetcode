@@ -10,4 +10,11 @@ use (
 	./0066-plus-one
 	./0303-range-sum-query-immutable
 	./0412-fizz-buzz
+	./0498-diagonal-traverse
+	./0724-pivot-index
+	./0876-middle-of-the-linked-list
+	./1480-running-sum-of-1d-array
+	./1672-richest-customer-wealth
+	./1991-find-middle-index
+	./2236-root-equals-sum-of-children
 )
